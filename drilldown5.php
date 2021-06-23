@@ -1,8 +1,6 @@
 <?php
-include "data5.php";
-include "data6.php";
-$Datajson = json_decode($jsonstore1, TRUE);
-$datastore2 = json_decode($jsonstore2, TRUE);
+include "data7.php";
+$Datajson = json_decode($jsonKategori, TRUE);
 ?>
 <html>
 <head>
@@ -65,17 +63,10 @@ Highcharts.chart('container', {
     },
 
     series: [{
-        name: 'Store 1',
+        name: 'Amount',
         data: [
-            <?php foreach ($Datajson as $data): ?>
-            <?= $data["amount"]; ?>,
-            <?php endforeach;?>
-        ]
-    }, {
-        name: 'Store 2 ',
-        data: [
-            <?php foreach ($datastore2 as $item): ?>
-            <?= $item["amount"]; ?>,
+            <?php foreach ($Datajson as $data):?>
+            <?= $data['amount']; ?>,
             <?php endforeach;?>
         ]
     }],
@@ -96,6 +87,7 @@ Highcharts.chart('container', {
     }
 
 });
+
 </script>
 </body>
 </html>
